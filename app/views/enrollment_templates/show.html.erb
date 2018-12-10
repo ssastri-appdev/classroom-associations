@@ -16,42 +16,38 @@
           Edit enrollment
         </a>
       </div>
+   </div>
+     
 
-      <div class="col">
-        <a href="/delete_enrollment/<%= @enrollment.id %>" class="btn btn-block btn-outline-secondary">
-          Delete enrollment
-        </a>
-      </div>
-    </div>
-
-    <dl>
-      <dt>
-        Course
-      </dt>
-      <dd>
-        <%= @enrollment.course_id %>
-      </dd>
+        
+      <dl>
+        <dt>
+          Course
+        </dt>
+        <dd>
+          <a href="/courses/<%= @enrollment.course_id %>">
+              <%= Course.find(@enrollment.course_id).title %>
+            </a>
+        </dd>
 
       <dt>
         Student
       </dt>
       <dd>
-        <%= @enrollment.student_id %>
+        <a href="/students/<%= @enrollment.student_id %>">
+            <%= Student.find(@enrollment.student_id).first_name %>
+            <%= Student.find(@enrollment.student_id).last_name %>
+          </a>
       </dd>
+     
 
-      <dt>
-        Created at
-      </dt>
-      <dd>
-        <%= time_ago_in_words(@enrollment.created_at) %> ago
-      </dd>
-
-      <dt>
-        Updated at
-      </dt>
-      <dd>
-        <%= time_ago_in_words(@enrollment.updated_at) %> ago
-      </dd>
+       <div class="col">
+        <a href="/delete_enrollment/<%= @enrollment.id %>" class="btn btn-block btn-outline-secondary">
+          Delete enrollment
+        </a>
+      </div>
+      
+    
     </dl>
   </div>
 </div>

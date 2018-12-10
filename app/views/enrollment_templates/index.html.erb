@@ -29,13 +29,7 @@
           Student
         </th>
 
-        <th>
-          Created at
-        </th>
-
-        <th>
-          Updated at
-        </th>
+       
 
         <th>
         </th>
@@ -48,19 +42,19 @@
         </td>
 
         <td>
-          <%= enrollment.course_id %>
+          <a href="/courses/<%= enrollment.course_id %>">
+            <%= Course.find(enrollment.course_id).title %>
+          </a>
         </td>
 
         <td>
-          <%= enrollment.student_id %>
+          <a href="/students/<%= enrollment.student_id %>">
+            <%= Student.find(enrollment.student_id).first_name %>
+            <%= Student.find(enrollment.student_id).last_name %>
+          </a>
         </td>
 
-        <td>
-          <%= time_ago_in_words(enrollment.created_at) %> ago
-        </td>
-        <td>
-          <%= time_ago_in_words(enrollment.updated_at) %> ago
-        </td>
+        
 
         <td>
           <a href="/enrollments/<%= enrollment.id %>">
