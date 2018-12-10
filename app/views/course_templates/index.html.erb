@@ -17,6 +17,10 @@
     <th>
       Title
     </th>
+    
+    <th>
+      Department
+    </th>
 
     <th>
     </th>
@@ -33,6 +37,10 @@
     </td>
 
     <td>
+      <%= Department.find(course.department_id).name %>
+    </td>
+    
+    <td>
       <a href="/courses/<%= course.id %>">
         Show details
       </a>
@@ -40,3 +48,4 @@
   </tr>
   <% end %>
 </table>
+
